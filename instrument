@@ -1,0 +1,35 @@
+Steps to create topic via commandline : (assumed zookeeper running on port 2181 and kafka server on 9092)
+
+Get inside the kafka pod by using this command
+kubectl exec -it kafka-pod-name -- /bin/bash
+
+Create the topic by using below command
+kafka-topics --bootstrap-server localhost:9092 --create --topic topic-name --replication-factor 1 --partitions 3
+
+you can verify the message produce and consume using below commands-
+a) produce-->
+
+kafka-console-producer --broker-list localhost:9092 --topic <topic-you-created-before>
+provide some message
+b) consume--> kafka-console-consumer --bootstrap-server localhost:9092 --topic audit --from-beginning
+
+you can see the message(provided by producer) here
+_______________________________________________________________________________________________________________
+
+Another way is to use the KafkaTopic resource:
+
+kubectl apply -f - <<EOF
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaTopic
+metadata:
+  name: my-new-topic
+  labels:
+    strimzi.io/cluster: my-cluster
+spec:
+  replicas: 3
+  partitions: 10
+EOF
+kubectl get kafkatopics.kafka.strimzi.io
+
+NAME           CLUSTER      PARTITIONS   REPLICATION FACTOR
+my-new-topic   my-cluster   10           3
