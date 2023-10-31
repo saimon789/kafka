@@ -14,6 +14,10 @@ provide some message
 b) consume--> kafka-console-consumer --bootstrap-server localhost:9092 --topic audit --from-beginning
 
 you can see the message(provided by producer) here
+
+
+kafka-topics.sh --bootstrap-server localhost:9092 --list    show all topic kafka
+kafka-topics.sh --bootstrap-server localhost:9092 --describe shot-worker-stats-0     show describe topic
 _______________________________________________________________________________________________________________
 
 Another way is to use the KafkaTopic resource:
