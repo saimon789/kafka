@@ -1,0 +1,8 @@
+Kafka: Удалить топик из консоли
+
+В комплекте с Kafka идет весь необходимый инструментарий для управления топиками.
+Переходим в директорию где у нас установлена Kafka и выполняем команду:
+
+./bin/kafka-topics.sh --delete --zookeeper <zookeeper_ip>:2181 --topic <topic_name>
+zookeeper_ip - IP адрес сервера zookeeper, если все установлено локально то localhost
+topic_name - имя топика для удаления.
