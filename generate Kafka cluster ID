@@ -1,0 +1,19 @@
+generate Kafka cluster ID for Kafka Raft metadata mode.
+
+Kafka cluster ID is expected to contain 16 bytes of a base64-encoded UUID.
+
+You can generate cluster ID using official utilities.
+
+$ cd /opt/kafka/kafka/
+$./bin/kafka-storage.sh random-uuid
+p8fFEbKGQ22B6M_Da_vCBw
+Now it can be used to format storage.
+
+$ sudo -u kafka /opt/kafka/kafka/bin/kafka-storage.sh format -t N2Q0ZTNlMWFhMTgyNDhiZj -c /opt/kafka/kafka/config/kraft/server.properties
+Formatting /opt/kafka/kafka/kafka_data
+$ sudo -u kafka cat /opt/kafka/kafka/kafka_data/meta.properties
+#
+#Sat Jun 19 14:06:49 UTC 2021
+node.id=1
+version=1
+cluster.id=N2Q0ZTNlMWFhMTgyNDhiZj
