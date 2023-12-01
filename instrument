@@ -37,3 +37,7 @@ kubectl get kafkatopics.kafka.strimzi.io
 
 NAME           CLUSTER      PARTITIONS   REPLICATION FACTOR
 my-new-topic   my-cluster   10           3
+
+
+
+
