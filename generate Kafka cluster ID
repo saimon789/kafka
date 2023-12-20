@@ -1,3 +1,6 @@
+https://sleeplessbeastie.eu/2021/10/22/how-to-generate-kafka-cluster-id/
+
+
 generate Kafka cluster ID for Kafka Raft metadata mode.
 
 Kafka cluster ID is expected to contain 16 bytes of a base64-encoded UUID.
