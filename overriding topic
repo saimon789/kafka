@@ -14,7 +14,10 @@ Set the min.insync.replicas value for the topic configured-topic to 2
 
 ```console
 kafka-configs.sh --bootstrap-server localhost:9092 --alter --entity-type topics --entity-name configured-topic --add-config min.insync.replicas=2
+
+kafka-configs.sh --bootstrap-server localhost:9092 --alter --entity-type brokers --entity-default --add-config min.insync.replicas=2 
 ```
 ```console
 kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic configured-topic
 ```
+https://www.conduktor.io/kafka/kafka-topic-configuration-min-insync-replicas/
