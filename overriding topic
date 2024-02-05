@@ -1,1 +1,20 @@
 
+First, create a topic named configured-topic with 3 partitions and a replication factor of 1, 
+using Kafka topics CLI, kafka-topics
+
+```console
+kafka-topics.sh --bootstrap-server localhost:9092 --create --topic configured-topic --partitions 3 --replication-factor 1
+```
+Describe the topic to check if there are any configuration override set for this topic.
+```console
+kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic configured-topic
+```
+
+Set the min.insync.replicas value for the topic configured-topic to 2
+
+```console
+kafka-configs.sh --bootstrap-server localhost:9092 --alter --entity-type topics --entity-name configured-topic --add-config min.insync.replicas=2
+```
+```console
+kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic configured-topic
+```
