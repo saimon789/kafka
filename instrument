@@ -1,3 +1,6 @@
+./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group notifier --topic notifier-topic --reset-offsets --to-earliest --execute
+
+
 Steps to create topic via commandline : (assumed zookeeper running on port 2181 and kafka server on 9092)
 
 Get inside the kafka pod by using this command
